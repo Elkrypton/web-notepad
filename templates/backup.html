@@ -1,0 +1,186 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <h1>{% block title %} Create a New Post {% endblock %}</h1>
+    <meta charset="utf-8">
+    <title>POST</title>
+    <!--Bootstrap Cdn -->
+    <link rel="stylesheet" 
+          href="static/style.css" 
+          integrity=
+"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
+          crossorigin="anonymous">
+    <!-- fontawesome cdn For Icons -->
+    <link rel="stylesheet"
+          href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" 
+          integrity=
+"sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" 
+          crossorigin="anonymous" />
+    <link rel="stylesheet"
+          href=
+"https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+          integrity=
+"sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+          crossorigin="anonymous" />
+  
+    <!--Internal CSS start-->
+    <style>
+        h1 {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            text-align: center;
+            color: #957dad;
+            font-family: 'Montserrat', sans-serif;
+        }
+          
+        section {
+            padding: 10%;
+            padding-top: 0;
+            height: 100vh;
+        }
+          
+        .side {
+            margin-left: 0;
+        }
+          
+        button {
+            margin: 10px;
+            border-color: #957dad !important;
+            color:  !important;
+            margin-bottom: 25px;
+        }
+          
+        button:hover {
+            background-color: #fec8d8 !important;
+        }
+          
+        textarea {
+            padding: 5%;
+            width : 1000px;
+            height: 500px;
+            border-color: #957dad;
+            
+        }
+          
+        .flex-box {
+
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <!--Internal CSS End-->
+</head>
+<!--Body start-->
+  
+<body>
+    <section class="">
+        <form method="post">
+        <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="title" placeholder="Post title" class="form-control" value="{{ request.form['title'] }}"></input>
+    </div>
+        <div class="flex-box">
+            <div class="row">
+                <div class="col">
+                    <!-- Adding different buttons for
+                         different functionality-->
+                    <!--onclick attribute is added to give 
+                        button a work to do when it is clicked-->
+                    <button type="button" 
+                            onclick="f1()" 
+                            class=" shadow-sm btn btn-outline-secondary" 
+                            data-toggle="tooltip"
+                            data-placement="top" 
+                            title="Bold Text">
+            Bold</button>
+                    <button type="button" 
+                            onclick="f2()" 
+                            class="shadow-sm btn btn-outline-success" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Italic Text">
+            Italic</button>
+                    <button type="button" 
+                            onclick="f3()" 
+                            class=" shadow-sm btn btn-outline-primary" 
+                            data-toggle="tooltip" 
+                            data-placement="top"
+                            title="Left Align">
+            <i class="fas fa-align-left"></i></button>
+                    <button type="button" 
+                            onclick="f4()" 
+                            class="btn shadow-sm btn-outline-secondary" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Center Align">
+            <i class="fas fa-align-center"></i></button>
+                    <button type="button" 
+                            onclick="f5()" 
+                            class="btn shadow-sm btn-outline-primary" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Right Align">
+            <i class="fas fa-align-right"></i></button>
+                    <button type="button" 
+                            onclick="f6()" 
+                            class="btn shadow-sm btn-outline-secondary" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Uppercase Text">
+            Upper Case</button>
+                    <button type="button" 
+                            onclick="f7()" 
+                            class="btn shadow-sm btn-outline-primary" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Lowercase Text">
+            Lower Case</button>
+                    <button type="button" 
+                            onclick="f8()" 
+                            class="btn shadow-sm btn-outline-primary" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Capitalize Text">
+            Capitalize</button>
+                    <button type="button" 
+                            onclick="f9()" 
+                            class="btn shadow-sm btn-outline-primary side" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            title="Tooltip on top">
+            Clear Text</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+            </div>
+            <div class="col-md-6 col-sm-9">
+                <div class="flex-box">
+
+                    <textarea name="content" placeholder="Post Content" 
+                    id="textarea1"  rows="15" cols="100" 
+                              class="input shadow" 
+                              name="name" 
+                              placeholder="Your text here ">{{ request.form['content']}}
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="control-group">
+    <div style="text-align:center" style="color">        <!-- <<--- here the changes -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  
+    <!--External JavaScript file-->
+    <script src="home.js"></script>
+</body>
+  
+{% endblock %}
